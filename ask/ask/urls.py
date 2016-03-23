@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^question/\d+/$', 'qa.views.test'),
     url(r'^ask/.*', 'qa.views.test'),
     url(r'^popular/.*', 'qa.view.test'),
-    url(r'^new/.*$', 'qa.views.test')
+    url(r'^new/.*$', 'qa.views.test'),
+    url(r'^$', 'qa.views.questions_all', name = 'questions_all')
 ]
