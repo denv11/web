@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Question(models.Model):
@@ -11,6 +12,12 @@ class Question(models.Model):
 	rating = models.IntegerField()
 	author = models.CharField(max_length=255)
 	likes = models.ForeignKey(User)
+
+	def __unicode__(self):
+		return self.title
+
+	def get_url(self):
+		return reverse('question', kwargs={'id': self.id})
 
 class Answer(models.Model):
 	text = models.TextField()
